@@ -65,8 +65,8 @@ const router = createBrowserRouter([
     ],
   },
   // Public error and fallback
-  // { path: "/404", element: <PUBLIC_ERROR_PAGE /> },
-  // { path: "*", element: <Navigate to="/404" replace /> },
+  { path: "/404", element: <PUBLIC_ERROR_PAGE /> },
+  { path: "*", element: <Navigate to="/404" replace /> },
 ])
 
 export default router
