@@ -1,0 +1,161 @@
+* {
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
+}
+
+.orderList-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+.order-card {
+  min-width: auto;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 15px;
+}
+
+.order-number-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: small;
+  color: var(--dark-color);
+}
+
+.order-number {
+  font-weight: bold;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+  color: black;
+}
+
+.order-type {
+  background: #e6f0ff;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.order-type.served {
+  background: #d7f9e8;
+}
+.order-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--dark-color);
+  overflow: hidden;
+}
+.order-meta .title {
+  min-width: max-content;
+  font-size: small;
+}
+.complete-order {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  font-size: small;
+  justify-content: end;
+  cursor: pointer;
+}
+.complete-order:hover {
+  text-decoration: underline;
+}
+.complete-order img {
+  filter: invert(1);
+  width: 15px;
+}
+
+.meta-detail {
+  font-weight: 550;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  color: var(--dark-color);
+  font-size: small;
+}
+
+.order-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  flex-grow: 1;
+  height: auto;
+}
+.order-item {
+  padding-left: 0.5rem;
+  font-size: smaller;
+}
+
+.order-button {
+  margin-top: auto;
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.order-button.done {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.order-button img {
+  filter: brightness(100);
+}
+
+.takeaway {
+  background-color: #d7dee6;
+}
+
+.btn-takeaway {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.dinein {
+  background-color: #ffe3c4;
+}
+
+.btn-dinein {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.done {
+  background-color: #d3f7dd;
+}
+
+.icon {
+  margin-left: 5px;
+}

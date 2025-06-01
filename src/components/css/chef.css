@@ -1,0 +1,84 @@
+.chef-table-wrapper {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.chef-table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: left;
+}
+
+.chef-table-wrapper thead {
+  border-top: 1px solid var(--primary-color);
+  border-bottom: 1px solid var(--primary-color);
+  background-color: var(--primary-background);
+}
+
+.chef-table-wrapper thead th {
+  padding: 0.5rem;
+  color: var(--primary-color);
+  font-weight: normal;
+}
+
+.chef-table-wrapper tbody td {
+  padding: 0.8rem;
+  border-bottom: 1px solid var(--muted-background);
+  color: var(--semi-dark-color);
+}
+
+.chef-table-wrapper .edit-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: start;
+  margin-right: 1rem;
+}
+
+.chef-table-wrapper .edit-btn img {
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 0.3rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.chef-table-wrapper .edit-btn img:hover {
+  background-color: var(--secondary-color);
+}
+
+.delete-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.delete-wrapper div {
+  color: var(--dark-color);
+}
+
+.delete-wrapper span {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.add-btn {
+  margin-left: auto;
+}
+
+.badge {
+  background-color: var(--primary-color);
+  color: var(--primary-background);
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  width: max-content;
+}
+
+.input {
+  min-width: max-content;
+  width: 100%;
+  max-width: -webkit-fill-available;
+  margin-bottom: 0.5rem;
+}

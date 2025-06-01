@@ -1,0 +1,124 @@
+.table-wrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 1rem;
+}
+
+.table {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 1.5rem 1rem;
+  background-color: var(--secondary-color);
+  transition: all ease-in-out 0.5s;
+  height: auto;
+}
+
+.table:hover {
+  box-shadow: 0px 0px 25px 10px rgba(0, 0, 0, 0.1);
+}
+
+.delete-icon {
+  position: absolute;
+  cursor: pointer;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+
+.delete-icon img {
+  width: 15px;
+  height: 15px;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-align: center;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  margin-bottom: 0.25rem;
+}
+
+.table-no {
+  font-size: 2.2rem;
+  font-weight: 550;
+  line-height: 1;
+}
+
+.table-chair {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  justify-content: end;
+  cursor: pointer;
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+}
+
+.blank-table {
+  border: 2px dotted gray;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.blank-table img {
+  width: 20px;
+  height: 20px;
+}
+
+.table-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inp-tableName,
+.inp-tableNo {
+  text-align: center;
+  padding: 0.5rem;
+  border: 0;
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.546);
+}
+
+.inp-tableNo {
+  font-size: 2rem;
+  text-align: center;
+}
+.inp-tableName:focus-within,
+.inp-tableNo:focus-within {
+  outline: none;
+}
+
+.inp-select-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-grp {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .table-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
