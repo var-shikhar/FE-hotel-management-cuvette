@@ -79,7 +79,15 @@ const useMenu = () => {
     }
   }
 
-  const handleNavigation = () => navigate(`../booking-confirmation`)
+  const handleNavigation = () => {
+    const currentPath = window.location.pathname
+    if (currentPath.includes("/menu")) {
+      const newPath = currentPath.replace("/menu", "/booking-confirmation")
+      navigate(newPath, { replace: true })
+    } else {
+      navigate("/booking-confirmation")
+    }
+  }
 
   return {
     searchInput,

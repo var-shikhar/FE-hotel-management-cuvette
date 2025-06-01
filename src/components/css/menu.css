@@ -155,4 +155,8 @@
     width: 20px;
     height: 20px;
   }
+
+  .menu-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
