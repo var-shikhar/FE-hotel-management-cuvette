@@ -1,12 +1,12 @@
-import CHAIR_ICON from "../../assets/chair-2.svg"
-import DELETE_ICON from "../../assets/delete.svg"
-import ADD_ICON from "../../assets/plus-icon.svg"
-import Button from "../../components/button"
-import "../../components/css/table.css"
-import Modal from "../../components/dialog"
-import Header from "../../components/header"
-import LoadingSpinner from "../../components/spinner"
-import useTableHook from "../../hooks/use-table"
+import CHAIR_ICON from "../assets/chair-2.svg"
+import DELETE_ICON from "../assets/delete.svg"
+import ADD_ICON from "../assets/plus-icon.svg"
+import Button from "../components/button"
+import "../components/css/table.css"
+import Modal from "../components/dialog"
+import Header from "../components/header"
+import LoadingSpinner from "../components/spinner"
+import useTableHook from "../hooks/use-table"
 
 const TableDashboard = () => {
   const {

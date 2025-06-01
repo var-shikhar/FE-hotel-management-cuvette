@@ -5,11 +5,9 @@ import menuAPI from "./slice/menu-slice"
 import orderAPI from "./slice/order-slice"
 import { selectedItemsReducer } from "./slice/selectedItem-slice"
 import tableAPI from "./slice/table-slice"
-import { userReducer } from "./slice/user-slice"
 
 export const store = configureStore({
   reducer: {
-    user: userReducer,
     selectedItem: selectedItemsReducer,
     [chefAPI.reducerPath]: chefAPI.reducer,
     [menuAPI.reducerPath]: menuAPI.reducer,

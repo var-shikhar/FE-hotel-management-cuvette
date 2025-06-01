@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import Button from "../../components/button"
+import Button from "../components/button"
 
 const PrivateError = () => {
   return (
@@ -8,7 +8,7 @@ const PrivateError = () => {
       <div className="landing_paragraph">
         You don’t have permission to view this page.
       </div>
-      <Link to="/app">
+      <Link to="/">
         <Button type="button">Go to Dashboard</Button>
       </Link>
     </div>

@@ -3,44 +3,21 @@ import { createBrowserRouter, Navigate } from "react-router-dom"
 import AuthWrapper from "./pages/privateRoutes"
 
 // Import Pages Dynamically (Lazy Loading for Better Performance)
-const LANDING_PAGE = lazy(() => import("./pages/landing/landing"))
-const PUBLIC_ERROR_PAGE = lazy(() => import("./pages/landing/public-error"))
-const PRIVATE_ERROR_PAGE = lazy(() => import("./pages/landing/private-error"))
-const PRIVACY_POLICY_PAGE = lazy(() => import("./pages/landing/privacy-poilcy"))
-const TERMS_CONDITION_PAGE = lazy(
-  () => import("./pages/landing/terms-condition")
-)
-const SIGN_IN_PAGE = lazy(() => import("./pages/auth/sign-in"))
-const DASHBOARD_LAYOUT = lazy(() => import("./pages/dashboard/layout"))
-const DASHBOARD_PAGE = lazy(() => import("./pages/dashboard/dashboard"))
-const TABLE_PAGE = lazy(() => import("./pages/dashboard/tables"))
-const ORDER_PAGE = lazy(() => import("./pages/dashboard/order"))
-const MENU_PAGE = lazy(() => import("./pages/dashboard/menu"))
-const BOOKING_CONFIRMATION = lazy(
-  () => import("./pages/dashboard/booking-confirmation")
-)
-const CHEF_PAGE = lazy(() => import("./pages/dashboard/chef"))
+const PUBLIC_ERROR_PAGE = lazy(() => import("./pages/public-error"))
+const PRIVATE_ERROR_PAGE = lazy(() => import("./pages/private-error"))
+const DASHBOARD_LAYOUT = lazy(() => import("./pages/layout"))
+const PUBLIC_LAYOUT = lazy(() => import("./pages/public-layout"))
+const DASHBOARD_PAGE = lazy(() => import("./pages/dashboard"))
+const TABLE_PAGE = lazy(() => import("./pages/tables"))
+const ORDER_PAGE = lazy(() => import("./pages/order"))
+const MENU_PAGE = lazy(() => import("./pages/menu"))
+const BOOKING_CONFIRMATION = lazy(() => import("./pages/booking-confirmation"))
+const CHEF_PAGE = lazy(() => import("./pages/chef"))
 
 const router = createBrowserRouter([
-  // Public Routes
   {
     path: "/",
-    errorElement: <PUBLIC_ERROR_PAGE />,
-    children: [
-      { index: true, element: <LANDING_PAGE /> },
-      { path: "privacy-policy", element: <PRIVACY_POLICY_PAGE /> },
-      { path: "terms-and-conditions", element: <TERMS_CONDITION_PAGE /> },
-      {
-        path: "auth/sign-in",
-        element: <AuthWrapper mode="Auth" element={<SIGN_IN_PAGE />} />,
-      },
-    ],
-  },
-
-  // Private Routes (Dashboard as Layout)
-  {
-    path: "/app",
-    element: <AuthWrapper mode="Private" element={<DASHBOARD_LAYOUT />} />,
+    element: <AuthWrapper element={<DASHBOARD_LAYOUT />} desktopOnly />,
     errorElement: <PRIVATE_ERROR_PAGE />,
     children: [
       {
@@ -49,42 +26,46 @@ const router = createBrowserRouter([
       },
       {
         path: "dashboard",
-        element: <DASHBOARD_PAGE />,
+        element: <AuthWrapper element={<DASHBOARD_PAGE />} desktopOnly />,
       },
       {
         path: "manage/table",
-        element: <TABLE_PAGE />,
+        element: <AuthWrapper element={<TABLE_PAGE />} desktopOnly />,
       },
       {
         path: "manage/orders",
-        element: <ORDER_PAGE />,
+        element: <AuthWrapper element={<ORDER_PAGE />} desktopOnly />,
       },
       {
         path: "manage/chef",
-        element: <CHEF_PAGE />,
+        element: <AuthWrapper element={<CHEF_PAGE />} desktopOnly />,
       },
       {
         path: "manage/menu",
-        element: <MENU_PAGE />,
+        element: <AuthWrapper element={<MENU_PAGE />} desktopOnly />,
       },
       {
         path: "manage/booking-confirmation",
-        element: <BOOKING_CONFIRMATION />,
-      },
-      {
-        path: "menu",
-        element: <MENU_PAGE />,
-      },
-      {
-        path: "booking-confirmation",
-        element: <BOOKING_CONFIRMATION />,
+        element: <AuthWrapper element={<BOOKING_CONFIRMATION />} desktopOnly />,
       },
     ],
   },
-
-  // Error Pages
+  {
+    path: "/",
+    element: <AuthWrapper element={<PUBLIC_LAYOUT />} mobileOnly />,
+    children: [
+      {
+        path: "menu",
+        element: <AuthWrapper element={<MENU_PAGE />} mobileOnly />,
+      },
+      {
+        path: "booking-confirmation",
+        element: <AuthWrapper element={<BOOKING_CONFIRMATION />} mobileOnly />,
+      },
+    ],
+  },
+  // Public error and fallback
   { path: "/404", element: <PUBLIC_ERROR_PAGE /> },
-  // Redirect unknown routes to home
   { path: "*", element: <Navigate to="/404" replace /> },
 ])
 

@@ -1,14 +1,14 @@
 import React from "react"
-import PlUS_ICON from "../../assets/plus-icon.svg"
-import SEARCH_ICON from "../../assets/search.svg"
-import MINUS_ICON from "../../assets/subtract.svg"
-import Button from "../../components/button"
-import "../../components/css/menu.css"
-import Header from "../../components/header"
-import LoadingSpinner from "../../components/spinner"
-import useMenu from "../../hooks/use-menu"
+import PlUS_ICON from "../assets/plus-icon.svg"
+import SEARCH_ICON from "../assets/search.svg"
+import MINUS_ICON from "../assets/subtract.svg"
+import Button from "../components/button"
+import "../components/css/menu.css"
+import Header from "../components/header"
+import LoadingSpinner from "../components/spinner"
+import useMenu from "../hooks/use-menu"
 
-const images = import.meta.glob("../../assets/*", {
+const images = import.meta.glob("/src/assets/*", {
   eager: true,
 }) as Record<string, { default: string }>
 
@@ -45,7 +45,7 @@ const MenuPanel = () => {
       </div>
       <div className="category-wrapper">
         {data?.category?.map((cat) => {
-          const Icon = images[`../../assets/${cat.icon}`]?.default
+          const Icon = images[`/src/assets/${cat.icon}`].default
           return (
             <div
               key={cat.id}
@@ -70,7 +70,7 @@ const MenuPanel = () => {
             return (
               <div key={item.id} className="menu-item">
                 <img
-                  src={images[`../../assets/${item.image}`]?.default}
+                  src={images[`/src/assets/${item.image}`]?.default}
                   alt={"menu-image"}
                 />
                 <div className="menu-block">

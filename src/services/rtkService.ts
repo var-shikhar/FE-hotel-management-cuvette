@@ -6,7 +6,7 @@ import {
   FetchBaseQueryError,
 } from "@reduxjs/toolkit/query"
 import Cookies from "js-cookie"
-import { sessionLogout, showToast } from "../lib/utils"
+import { showToast } from "../lib/utils"
 
 const baseQuery = fetchBaseQuery({
   baseUrl: import.meta.env.VITE_APP_BACKEND_URL,
@@ -30,8 +30,6 @@ export const baseQueryWithInterceptor = async (
     const result = await baseQuery(args, api, extraOptions!)
     if (result.error) {
       const fetchedError = result.error as FetchBaseQueryError
-      if (fetchedError.status === 440) sessionLogout()
-
       const errorMessage =
         (fetchedError.data as { message?: string })?.message ||
         "An error occurred"
@@ -40,13 +38,9 @@ export const baseQueryWithInterceptor = async (
     return result
   } catch (error) {
     const fetchError = error as FetchBaseQueryError
-    if (fetchError?.status === 440) sessionLogout()
-    else {
-      const errorMessage =
-        (fetchError.data as { message?: string })?.message ||
-        "An error occurred"
-      showToast(errorMessage, "error")
-    }
+    const errorMessage =
+      (fetchError.data as { message?: string })?.message || "An error occurred"
+    showToast(errorMessage, "error")
     return Promise.reject(error)
   }
 }

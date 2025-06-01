@@ -14,17 +14,14 @@
 */
 
 import clsx from "clsx"
-import { useCallback, useEffect, useState } from "react"
-import { useDispatch } from "react-redux"
+import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
-import ANALYTICS_SVG from "../assets/mdi_analytics.svg"
-import DASHBOARD_SVG from "../assets/dashboard.svg"
-import CHAIR_SVG from "../assets/chair.svg"
-import PROFILE_SVG from "../assets/profile.svg"
 import ORDER_SVG from "../assets/bxs_food-menu.svg"
+import CHAIR_SVG from "../assets/chair.svg"
+import DASHBOARD_SVG from "../assets/dashboard.svg"
+import ANALYTICS_SVG from "../assets/mdi_analytics.svg"
+import PROFILE_SVG from "../assets/profile.svg"
 import TEAM_SVG from "../assets/team.svg"
-import { logoutUser } from "../redux/slice/user-slice"
-import { AppDispatch } from "../redux/store"
 import "./css/aside.css"
 import LogoWrapper from "./logo-wrapper"
 
@@ -63,7 +60,6 @@ const ASIDE_LIST = [
 ]
 
 const Aside = () => {
-  const dispatch = useDispatch<AppDispatch>()
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
 
   // Set the initial state based on the window width
@@ -79,25 +75,18 @@ const Aside = () => {
     return () => mediaQuery.removeEventListener("change", handleChange)
   }, [])
 
-  // Handle User Logout Dispatch Function
-  const handleDelete = useCallback(() => {
-    dispatch(logoutUser())
-  }, [])
-
   // Handle Mobile View
   if (isMobile) {
     return (
       <>
         {/* Mobile Header (Fixed at Top) */}
         <div className="mobile-header">
-          <LogoWrapper hasTitle={false} />
+          <LogoWrapper />
           <div className="user-wrapper">
             <div className="mobile-user">
               <img src={PROFILE_SVG} alt="User" width={25} />
             </div>
-            <div className="user-popup-content" onClick={handleDelete}>
-              Signout
-            </div>
+            <div className="user-popup-content">Signout</div>
           </div>
         </div>
 
@@ -136,7 +125,7 @@ const Aside = () => {
     <>
       <div>
         {/* Header */}
-        <LogoWrapper hasTitle={false} />
+        <LogoWrapper />
 
         {/* Navigation */}
         <nav className="navigation-wrapper">
@@ -173,9 +162,7 @@ const Aside = () => {
           <img src={PROFILE_SVG} alt="user" width={25} />
         </div>
 
-        <div className="user-popup-content" onClick={handleDelete}>
-          Sign Out
-        </div>
+        <div className="user-popup-content">Sign Out</div>
       </div>
     </>
   )

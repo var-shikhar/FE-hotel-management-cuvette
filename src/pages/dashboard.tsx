@@ -1,13 +1,13 @@
-import CHEF_ICON from "../../assets/bowl.svg"
-import ORDER_ICON from "../../assets/orders.svg"
-import REVENUE_ICON from "../../assets/ph_currency-inr-bold.svg"
-import CLIENT_ICON from "../../assets/users.svg"
-import "../../components/css/chef.css"
-import "../../components/css/dashboard.css"
-import Header from "../../components/header"
-import InfoCard from "../../components/info-card"
-import LoadingSpinner from "../../components/spinner"
-import useAnalytics from "../../hooks/use-analytics"
+import CHEF_ICON from "../assets/bowl.svg"
+import ORDER_ICON from "../assets/orders.svg"
+import REVENUE_ICON from "../assets/ph_currency-inr-bold.svg"
+import CLIENT_ICON from "../assets/users.svg"
+import "../components/css/chef.css"
+import "../components/css/dashboard.css"
+import Header from "../components/header"
+import InfoCard from "../components/info-card"
+import LoadingSpinner from "../components/spinner"
+import useAnalytics from "../hooks/use-analytics"
 
 const Dashboard = () => {
   const { data, isLoading } = useAnalytics()

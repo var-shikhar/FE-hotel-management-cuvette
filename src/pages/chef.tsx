@@ -1,11 +1,11 @@
-import DELETE_ICON from "../../assets/delete.svg"
-import SORT_ICON from "../../assets/sort.svg"
-import Button from "../../components/button"
-import "../../components/css/chef.css"
-import Modal from "../../components/dialog"
-import Header from "../../components/header"
-import LoadingSpinner from "../../components/spinner"
-import useChefHook from "../../hooks/use-chef"
+import DELETE_ICON from "../assets/delete.svg"
+import SORT_ICON from "../assets/sort.svg"
+import Button from "../components/button"
+import "../components/css/chef.css"
+import Modal from "../components/dialog"
+import Header from "../components/header"
+import LoadingSpinner from "../components/spinner"
+import useChefHook from "../hooks/use-chef"
 
 const Chef = () => {
   const {

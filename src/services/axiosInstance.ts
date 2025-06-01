@@ -1,6 +1,6 @@
 // Common Instanse Setter for the Axios Instance Wherein the Credentials and other details are set globally for all axios requests
 
-import { sessionLogout, showToast } from "../lib/utils"
+import { showToast } from "../lib/utils"
 import axios from "axios"
 import Cookies from "js-cookie"
 
@@ -39,13 +39,10 @@ axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response) {
-      const { status, data } = error.response
+      const { data } = error.response
 
-      if (status === 440) sessionLogout()
-      else {
-        console.error(data?.message || "An error occurred")
-        showToast(data?.message || "An error occurred", "error")
-      }
+      console.error(data?.message || "An error occurred")
+      showToast(data?.message || "An error occurred", "error")
     } else {
       console.error("Network error. Please try again.")
       showToast("Network error. Please try again.", "error")

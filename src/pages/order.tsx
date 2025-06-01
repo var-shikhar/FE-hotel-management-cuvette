@@ -1,13 +1,13 @@
-import "../../components/css/menu.css"
-import "../../components/css/order.css"
-import Header from "../../components/header"
-import LoadingSpinner from "../../components/spinner"
-import useOrderDashboard from "../../hooks/use-order-dashboard"
-import ICON from "../../assets/folk.svg"
-import COMPLETE_ICON from "../../assets/toast_check.svg"
-import PROCESSING_ICON from "../../assets/processing.svg"
-import COMPLETED_ICON from "../../assets/check.svg"
-import Button from "../../components/button"
+import "../components/css/menu.css"
+import "../components/css/order.css"
+import Header from "../components/header"
+import LoadingSpinner from "../components/spinner"
+import useOrderDashboard from "../hooks/use-order-dashboard"
+import ICON from "../assets/folk.svg"
+import COMPLETE_ICON from "../assets/toast_check.svg"
+import PROCESSING_ICON from "../assets/processing.svg"
+import COMPLETED_ICON from "../assets/check.svg"
+import Button from "../components/button"
 
 const OrderDashboard = () => {
   const { isLoading, isUpdating, orderList, handleUpdateTable } =

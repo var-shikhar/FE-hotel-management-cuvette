@@ -1,22 +1,21 @@
 import React from "react"
-import CROSS_ICON from "../../assets/cross.svg"
-import DELIVERY_ICON from "../../assets/delivery.svg"
-import LOCATION_ICON from "../../assets/location.svg"
-import PlUS_ICON from "../../assets/plus-icon.svg"
-import SEARCH_ICON from "../../assets/search.svg"
-import MINUS_ICON from "../../assets/subtract.svg"
-import Button from "../../components/button"
-import "../../components/css/menu.css"
-import "../../components/css/booking-confirmation.css"
-import Modal from "../../components/dialog"
-import LoadingSpinner from "../../components/spinner"
-import SwipeButton from "../../components/swipe-button"
-import useOrderConfirmation from "../../hooks/use-order-confirmation"
+import CROSS_ICON from "../assets/cross.svg"
+import DELIVERY_ICON from "../assets/delivery.svg"
+import LOCATION_ICON from "../assets/location.svg"
+import PlUS_ICON from "../assets/plus-icon.svg"
+import SEARCH_ICON from "../assets/search.svg"
+import MINUS_ICON from "../assets/subtract.svg"
+import Button from "../components/button"
+import "../components/css/menu.css"
+import "../components/css/booking-confirmation.css"
+import Modal from "../components/dialog"
+import LoadingSpinner from "../components/spinner"
+import SwipeButton from "../components/swipe-button"
+import useOrderConfirmation from "../hooks/use-order-confirmation"
 
-const images = import.meta.glob("../../assets/*", {
+const images = import.meta.glob("/src/assets/*", {
   eager: true,
 }) as Record<string, { default: string }>
-
 const MenuPanel = () => {
   const {
     handleSearchInput,
@@ -57,7 +56,7 @@ const MenuPanel = () => {
           filteredMenu?.map((item) => (
             <div key={item.itemId} className="booked-item">
               <img
-                src={images[`../../assets/${item.image}`]?.default}
+                src={images[`/src/assets/${item.image}`]?.default}
                 className={"item-image"}
                 alt="menu-image"
               />

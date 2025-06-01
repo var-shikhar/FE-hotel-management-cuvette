@@ -1,7 +1,5 @@
-import LinkButton from "../components/link-btn"
 import Button from "./button"
 import "./css/header.css"
-import LogoWrapper from "./logo-wrapper"
 
 type Props = {
   title: string
@@ -36,16 +34,3 @@ const Header = ({ description, title, button }: Props) => {
   )
 }
 export default Header
-
-export const PublicHeader = () => {
-  return (
-    <div className="landing_header-wrapper landing_margin">
-      <div className="landing_header-content">
-        <LogoWrapper />
-        <div className="landing_header-buttons">
-          <LinkButton text="Login" redirectTo="/auth/sign-in" isLight />
-        </div>
-      </div>
-    </div>
-  )
-}
