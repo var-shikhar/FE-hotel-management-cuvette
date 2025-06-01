@@ -158,5 +158,10 @@
 
   .menu-wrapper {
     grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .menu-item {
+    max-width: 42vw;
   }
 }

@@ -15,10 +15,10 @@ export type TOrder = {
   orderType: string
   status: string
   pickupStatus: string
+  instructions: string
   items: {
     itemName: string
     itemQuantity: number
-    itemInstructions: string
   }[]
 }
 

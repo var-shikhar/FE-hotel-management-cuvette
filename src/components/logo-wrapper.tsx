@@ -6,7 +6,7 @@ const LogoWrapper = () => {
   return (
     <Link to={"/"} className="logo-link">
       <div className="logo-wrapper">
-        <img src={LOGO} alt="HUBLY" width={45} />
+        <img src={LOGO} alt="Hotel Management" width={45} />
       </div>
     </Link>
   )

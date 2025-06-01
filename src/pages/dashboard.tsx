@@ -4,6 +4,8 @@ import REVENUE_ICON from "../assets/ph_currency-inr-bold.svg"
 import CLIENT_ICON from "../assets/users.svg"
 import "../components/css/chef.css"
 import "../components/css/dashboard.css"
+import DashboardDonut from "../components/dashboard-donut"
+import RevenueChart from "../components/dashboard-line"
 import Header from "../components/header"
 import InfoCard from "../components/info-card"
 import LoadingSpinner from "../components/spinner"
@@ -36,6 +38,20 @@ const Dashboard = () => {
       </div>
 
       <div className="dashboard-row">
+        <div className="table-status">
+          <h5>Order Summary</h5>
+          <div className="status_type text-left">
+            Find summary of all your orders
+          </div>
+          <DashboardDonut />
+        </div>
+        <div className="table-status">
+          <h5>Revenue</h5>
+          <div className="status_type text-left">
+            Find & Analyze revenue of your restaurant
+          </div>
+          <RevenueChart />
+        </div>
         <div className="table-status">
           <h5>Table Availability</h5>
           <div className="status_type">

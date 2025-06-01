@@ -71,22 +71,6 @@
   min-width: max-content;
   font-size: small;
 }
-.complete-order {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  flex-wrap: wrap;
-  font-size: small;
-  justify-content: end;
-  cursor: pointer;
-}
-.complete-order:hover {
-  text-decoration: underline;
-}
-.complete-order img {
-  filter: invert(1);
-  width: 15px;
-}
 
 .meta-detail {
   font-weight: 550;
@@ -158,4 +142,31 @@
 
 .icon {
   margin-left: 5px;
+}
+
+.remainting-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem;
+}
+.remaining-time,
+.complete-order {
+  width: 45%;
+}
+
+.complete-order {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: small;
+  justify-content: end;
+  cursor: pointer;
+}
+.complete-order:hover {
+  text-decoration: underline;
+}
+.complete-order img {
+  filter: invert(1);
+  width: 15px;
 }

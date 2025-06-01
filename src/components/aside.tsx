@@ -103,17 +103,12 @@ const Aside = () => {
               }
               end
             >
-              {({ isActive }) => (
-                <>
-                  <img
-                    src={item.icon}
-                    alt={item.title}
-                    width={25}
-                    className="nav-icon"
-                  />
-                  {isActive && <div className="nav-title">{item.title}</div>}
-                </>
-              )}
+              <img
+                src={item.icon}
+                alt={item.title}
+                width={25}
+                className="nav-icon"
+              />
             </NavLink>
           ))}
         </nav>
@@ -140,17 +135,12 @@ const Aside = () => {
               }
               end
             >
-              {({ isActive }) => (
-                <>
-                  <img
-                    src={item.icon}
-                    alt={item.title}
-                    width={25}
-                    className="nav-icon"
-                  />
-                  {isActive && <div className="nav-title">{item.title}</div>}
-                </>
-              )}
+              <img
+                src={item.icon}
+                alt={item.title}
+                width={25}
+                className="nav-icon"
+              />
             </NavLink>
           ))}
         </nav>

@@ -45,25 +45,33 @@ const OrderDashboard = () => {
                       {order.items.length > 1 ? "s" : ""}
                     </span>
                   </span>
-                  <div
-                    className={`order-type ${
-                      order.status === "Completed" ? "served" : ""
-                    }`}
-                  >
-                    <div>{order.orderType}</div>
-                    <span>
-                      {order.status === "Completed" ? "Served" : order.status}
-                    </span>
+                  <div>
+                    <div
+                      className={`order-type ${
+                        order.status === "Completed" ? "served" : ""
+                      }`}
+                    >
+                      <div>{order.orderType}</div>
+                      <span>
+                        {order.status === "Completed" ? "Served" : order.status}
+                      </span>
+                    </div>
                   </div>
                 </div>
                 {!isCompleted && (
-                  <span
-                    className="complete-order"
-                    onClick={() => handleUpdateTable(order.orderID)}
-                  >
-                    <img src={COMPLETE_ICON} alt="complete" />
-                    Complete Order
-                  </span>
+                  <div className="remainting-wrapper">
+                    <small className="remaining-time">
+                      Remaining time: {order.remainingTime}{" "}
+                      {order.remainingTime > 1 ? "Mins" : "Min"}
+                    </small>
+                    <span
+                      className="complete-order"
+                      onClick={() => handleUpdateTable(order.orderID)}
+                    >
+                      <img src={COMPLETE_ICON} alt="complete" />
+                      Complete Order
+                    </span>
+                  </div>
                 )}
                 <div className="order-meta">
                   <span className="title">Client Name: -</span>
@@ -73,6 +81,7 @@ const OrderDashboard = () => {
                   <span className="title">Client No: -</span>
                   <span className="meta-detail">{order.clientPhone}</span>
                 </div>
+                <small>{order.instructions}</small>
                 <div className="order-items">
                   <div>
                     <strong>Value Set Meals</strong>
