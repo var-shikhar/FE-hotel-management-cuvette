@@ -13,7 +13,6 @@ import useAnalytics from "../hooks/use-analytics"
 
 const Dashboard = () => {
   const { data, isLoading } = useAnalytics()
-
   if (isLoading || !data) return <LoadingSpinner />
   return (
     <>
@@ -38,20 +37,9 @@ const Dashboard = () => {
       </div>
 
       <div className="dashboard-row">
-        <div className="table-status">
-          <h5>Order Summary</h5>
-          <div className="status_type text-left">
-            Find summary of all your orders
-          </div>
-          <DashboardDonut />
-        </div>
-        <div className="table-status">
-          <h5>Revenue</h5>
-          <div className="status_type text-left">
-            Find & Analyze revenue of your restaurant
-          </div>
-          <RevenueChart />
-        </div>
+        <DashboardDonut data={data.orderSummary} total={data.totalOrder} />
+        <RevenueChart data={data.revenueSummary} />
+
         <div className="table-status">
           <h5>Table Availability</h5>
           <div className="status_type">

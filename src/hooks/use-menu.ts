@@ -1,3 +1,32 @@
+/**
+ * useMenu – A custom hook for managing the menu system in a restaurant or food ordering context.
+ *
+ * Features:
+ * - Fetches menu and category data using Redux Toolkit Query.
+ * - Maintains and updates state for:
+ *    - Active category selection
+ *    - Search input for filtering menu items
+ * - Dynamically filters menu items based on selected category and search input.
+ * - Handles item updates in the selected cart using Redux actions:
+ *    - Add a new item or increment its quantity
+ *    - Increment quantity of an existing item
+ *    - Decrement quantity of an existing item
+ * - Determines if the "All" category exists and sets it as the default category.
+ * - Handles navigation from the menu page to the booking confirmation page.
+ *
+ * Returns:
+ * - searchInput: Current search input string
+ * - handleSearchInput: Function to update search input
+ * - isLoading: Boolean indicating if the menu data is still loading
+ * - activeCategory: Currently selected category
+ * - handleCategory: Function to change the active category
+ * - filteredMenu: List of menu items filtered by category and search
+ * - data: Full menu and category data
+ * - selectedItems: Items selected for order/cart from Redux store
+ * - handleMenuUpdate: Function to manage item updates (add, increment, decrement)
+ * - handleNavigation: Function to navigate to booking confirmation page
+ */
+
 import { useMemo, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import {

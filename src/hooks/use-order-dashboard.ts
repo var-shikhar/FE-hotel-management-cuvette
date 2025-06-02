@@ -1,9 +1,17 @@
 /**
- * useTeamHook – Custom hook for managing team members in a team management context.
+ * useOrderDashboard – Custom hook to manage the order dashboard state and actions.
  *
- * - Fetches the list of members and provides functionality for sorting, filtering, and handling different modes (edit, delete, create).
- * - Handles user selection, modal toggling, and deletion of members.
- * - Provides helper functions for navigation, sorting, and updating team data.
+ * Features:
+ * - Fetches the list of orders with automatic refetching on mount or argument changes.
+ * - Provides a mutation function to update the status of an order.
+ * - Exposes loading states for both fetching orders and updating an order.
+ * - Contains a handler to update an order’s status with success and error notifications.
+ *
+ * Returns:
+ * - orderList: Array of fetched orders.
+ * - isLoading: Boolean indicating if orders are being fetched.
+ * - isUpdating: Boolean indicating if an order status update is in progress.
+ * - handleUpdateTable: Async function to update the status of an order by ID.
  */
 
 import { showToast } from "../lib/utils"

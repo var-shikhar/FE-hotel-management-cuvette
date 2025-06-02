@@ -1,9 +1,31 @@
 /**
- * useTeamHook – Custom hook for managing team members in a team management context.
+ * useChefHook – A custom hook for managing chef data in a team or kitchen management system.
  *
- * - Fetches the list of members and provides functionality for sorting, filtering, and handling different modes (edit, delete, create).
- * - Handles user selection, modal toggling, and deletion of members.
- * - Provides helper functions for navigation, sorting, and updating team data.
+ * Features:
+ * - Fetches the list of chefs using Redux Toolkit Query and provides real-time loading status.
+ * - Supports sorting the chef list alphabetically (ascending/descending).
+ * - Handles user interactions including:
+ *    - Selecting a chef with a specific mode (Delete or Create)
+ *    - Toggling modal visibility
+ *    - Creating a new chef entry
+ *    - Deleting an existing chef
+ * - Exposes necessary state and handlers for integration with UI components:
+ *    - Modal state and toggle
+ *    - Input state for new chef name
+ *    - Loading states for both deletion and creation
+ *    - Selected mode and selected chef ID
+ *
+ * Returns:
+ * - filteredList: The sorted chef list
+ * - handleSort: Function to toggle sort order
+ * - handleSelectChef: Function to select a chef and trigger a modal with the specified mode
+ * - handleToggle: Function to open/close the modal
+ * - handleDelete: Function to delete a selected chef
+ * - handleAddChef: Function to add a new chef
+ * - isLoading, isDeleting, isCreating: Flags for API call loading states
+ * - modalToggle, setModalToggle: Modal state and setter
+ * - inputName, setInputName: Input field state for new chef's name
+ * - mode: Current mode ("Delete" or "Create")
  */
 
 import { startTransition, useMemo, useState } from "react"

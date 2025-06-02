@@ -1,87 +1,85 @@
-# Hubly - Chatbot & Admin Management Portal
+# Booking Management & Dashboard Analytics - Frontend
 
 ## 🚀 Overview
 
-**Hubly** is a team-oriented communication platform that enables businesses to integrate a **chatbot interface for end-users** and a **powerful admin portal** for internal management. End-users can chat through a widget embedded in a website, while **admins** can monitor conversations, manage chatbot settings, configure teams, and view chat-based analytics.
+The frontend is built with React and Redux Toolkit Query (RTK Query) to efficiently manage asynchronous state and server interactions.
 
 ## ✨ Features
 
-### 💬 Chatbot (End-User Experience)
+### 🍳 Table Management
 
-- Embed the chatbot on your website to allow visitors to initiate a conversation.
-- Simple and responsive user interface for messaging.
-- Persistent chat history and session handling.
+- Manage restaurant tables through a user-friendly interface with full CRUD (Create, Read, Update, Delete) operations.
+- Fetches the current list of tables and displays loading states.
+- Supports adding new tables with default values and validation.
+- Allows editing existing tables, updating their details seamlessly.
+- Enables deletion of tables with confirmation modals.
+- Form inputs and modal visibility are managed using React state and React’s startTransition for smooth UI updates.
+- User feedback is provided via toast notifications on success or failure of operations.
 
-### 🛠️ Admin Portal
+### 📊 Dashboard Analytics
 
-- **Chatbot Personalization**: Customize placeholder texts, welcome messages, button labels, and color themes.
-- **Team Management**: Create and manage teams and assign chats to specific users.
-- **Analytics Dashboard**:
-  - View chatbot usage metrics.
-  - Monitor chatbot response time.
+- Total chefs, clients, and orders
+- Total revenue generated
+- Number of tables available and booked for the current day
+- Provides valuable insights for restaurant management.
+
+### ⚙️ RTK Query Integration & Reusable Hooks
+
+- Utilizes RTK Query hooks to handle API requests, cache management, and loading states for table data.
+- Queries to fetch the table list.
+- Mutations for creating, updating, and deleting tables.
+- Business logic for table operations is encapsulated in a custom React hook (useTableHook) for modularity and cleaner component code.
 
 ## 🧱 Tech Stack
 
-### Frontend
-
-- **React**
-- **Redux Toolkit (RTK Query)**
-- **Vanilla CSS**
-
 ### Backend
 
-- **Node.js/Express** ([Handled in a separate repository](https://github.com/var-shikhar/Hubly-BE-Cuvette))
-
-### Database
-
-- **MongoDB** ([Handled in the backend](https://github.com/var-shikhar/Hubly-BE-Cuvette))
+- **React**
+- **Redux Toolkit Query** (RTK Query)
+- **Vanilla CSS**
 
 ## 📦 Installation
 
-Follow these steps to set up the frontend locally:
+To set up and run the backend locally, follow these steps:
 
 ```sh
 # Clone the repository
-git clone https://github.com/var-shikhar/Hubly-BE-Cuvette.git
-cd Hubly-BE-Cuvette
+git clone https://github.com/var-shikhar/FE-hotel-management-cuvette.git
+cd FE-hotel-management-cuvette
 
 # Install dependencies
 npm install
 
-# Copy environment variables template and configure Cloudinary
+# Configure environment variables
 cp .env.example .env
+# Edit .env file to add your config values
 
 # Start the development server
 npm run dev
 ```
 
-Open the app in your browser at `http://localhost:5173`
+## 🧩 Usage & Code Structure
 
-## 📂 Code Structure
+### 📁 Modular Architecture
 
-### 🧱 Modularized Codebase
+**Organized into:**
 
-- The project is structured to ensure better maintainability and reusability.
-- Components are designed to be reusable wherever possible
-- Shared logic and styling patterns for consistency across the app.
+- /components – Reusable Modular Components
+- /components/css – CSS for Components & Pages
+- /hooks – All Project Hooks
+- /pages – All Project Pages.
+- /redux – Redux Slices and Store.
+- /services – Common Redux/RTK Service.
+- /lib – Helper functions and Common Route File
 
-### 🧩 Form Generator Component
+## Environment Variables
 
-- Dynamically generates forms based on a JSON schema.
-- Includes built-in validation for form fields.
+Ensure you configure the `.env` file with the required credentials:
 
-## 🌍 Environment Variables
-
-Create a .env file in the project root using the following structure:
-
-```sh
-# Copy the .env.example file
-cp .env.example .env
-  VITE_APP_BACKEND_URL=
-  VITE_APP_DEV_BACKEND_URL=
+```env
+VITE_APP_DEV_BACKEND_URL=your_backend_port
+VITE_APP_BACKEND_URL=your_live_port
 ```
-
-These environment variables are used to switch between production and development API endpoints.
 
 ## 📬 Contact
 

@@ -1,3 +1,34 @@
+/**
+ * useOrderConfirmation – Custom hook to manage order confirmation flow in a food ordering app.
+ *
+ * Responsibilities:
+ * - Manage selected items and filter them by search input.
+ * - Handle order type selection (Dine-in or Take-Away) with validation.
+ * - Maintain order details state (client info, instructions, delivery charges, totals, location, tax, preparation time).
+ * - Calculate totals, tax, and preparation time dynamically based on selected items.
+ * - Manage modal visibility and mode (Address, Detail, Instruction).
+ * - Provide functions to update item quantities in the cart (increment, decrement, remove).
+ * - Handle order submission through API mutation, including input validation and post-submission cleanup.
+ * - Navigate back on successful order placement.
+ *
+ * Returns:
+ * - searchInput: Current search string for filtering selected items.
+ * - handleSearchInput: Function to update search input state.
+ * - filteredMenu: Selected items filtered by search input.
+ * - handleMenuUpdate: Function to modify item quantities or remove items.
+ * - activeType: Currently selected order type.
+ * - OrderType: Available order types array.
+ * - handleOrderType: Function to set active order type with validation.
+ * - modalToggle: Boolean controlling visibility of modal.
+ * - setModalToggle: Setter for modal visibility state.
+ * - mode: Current modal mode (Address, Detail, Instruction).
+ * - orderDetails: Object holding client/order related details.
+ * - handleModalToggle: Function to toggle modal visibility and mode.
+ * - handleOrderDetails: Function to update order details fields.
+ * - isLoading: Boolean indicating if order submission is in progress.
+ * - handleNewOrder: Async function to validate and submit the new order.
+ */
+
 import { startTransition, useEffect, useMemo, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"

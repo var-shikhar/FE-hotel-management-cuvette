@@ -1,3 +1,4 @@
+import type { TooltipItem } from "chart.js"
 import {
   CategoryScale,
   Chart as ChartJS,
@@ -7,8 +8,9 @@ import {
   PointElement,
   Tooltip,
 } from "chart.js"
+import { useState } from "react"
 import { Line } from "react-chartjs-2"
-import type { TooltipItem } from "chart.js"
+import { TAnalytics } from "../redux/slice/dashboard-slice"
 
 ChartJS.register(
   LineElement,
@@ -19,13 +21,17 @@ ChartJS.register(
   Filler
 )
 
-const RevenueChart = () => {
-  const data = {
-    labels: ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"],
+type Modes = "daily" | "weekly"
+
+const RevenueChart = ({ data }: { data: TAnalytics["revenueSummary"] }) => {
+  const [activeMode, setActiveMode] = useState<Modes>("daily")
+  const revenueData = data?.[activeMode] ?? {}
+  const chartData = {
+    labels: Object.keys(revenueData),
     datasets: [
       {
         label: "Revenue",
-        data: [20, 45, 30, 50, 40, 70, 55],
+        data: Object.values(revenueData),
         borderColor: "#000",
         backgroundColor: "transparent",
         tension: 0.4,
@@ -71,10 +77,32 @@ const RevenueChart = () => {
       },
     },
   }
-
   return (
-    <div className="revenue-chart-wrapper">
-      <Line data={data} options={options} />
+    <div className="table-status">
+      <div className="dashboard-header">
+        <span>
+          <h5>Revenue</h5>
+          <div className="status_type text-left">
+            Find & Analyze revenue of your restaurant
+          </div>
+        </span>
+        <select
+          className=""
+          title="filter"
+          value={activeMode}
+          onChange={(e) => setActiveMode(e.target.value as Modes)}
+        >
+          <option value={"daily"}>Daily</option>
+          <option value={"weekly"}>Weekly</option>
+        </select>
+      </div>
+      <div className="revenue-chart-wrapper">
+        {Object.keys(revenueData).length === 0 ? (
+          <p>No revenue data available.</p>
+        ) : (
+          <Line data={chartData} options={options} />
+        )}
+      </div>
     </div>
   )
 }
